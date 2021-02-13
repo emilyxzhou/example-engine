@@ -5,6 +5,7 @@ class User:
         self._dictionary_of_nodes = dictionary_of_nodes
 
     def add_node(self, key, node):
+        # TODO: make sure this does not completely rewrite the dictionary
         self._dictionary_of_nodes = {key: node}
 
     def get_next_node(self, current_node, input_choice_index):

@@ -1,4 +1,4 @@
-class Node:  # each interaction round with user
+class Node:
 
     def __init__(self, question, array_of_options, key):
         self._question = question
