@@ -4,9 +4,11 @@ from interaction_engine.option import Option
 class Node:  # each interaction round with user
 
     def __init__(self, question, array_of_options):
-        assert isinstance(question, str)
-        for options in array_of_options:
-            assert isinstance(options, Option)
+        if not type(question) is str:
+            raise TypeError("Only strings are allowed for question")
+        for option in array_of_options:
+            if not type(option) is Option:
+                raise TypeError("Only Options are allowed for options")
         self._question = question
         self._array_of_options = array_of_options
 

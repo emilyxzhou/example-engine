@@ -1,8 +1,10 @@
 class Option:
 
     def __init__(self, option_content, next_node_key):
-        assert isinstance(option_content, str)
-        assert isinstance(next_node_key, str)
+        if not type(option_content) is str:
+            raise TypeError("Only strings are allowed for option content")
+        if not type(next_node_key) is str:
+            raise TypeError("Only strings are allowed for key of next node")
         self._option_content = option_content
         self._next_node_key = next_node_key
 

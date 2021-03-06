@@ -3,13 +3,26 @@ from interaction_engine.option import Option
 
 
 class TestOption(unittest.TestCase):
-        def test_option(self):
-                option1 = Option("Ok", "satisfaction level")
-                option2 = Option("No", "quit")
-                assert isinstance(option1._option_content, str)
-                assert isinstance(option2._option_content, str)
-                assert isinstance(option1._next_node_key, str)
-                assert isinstance(option2._next_node_key, str)
+        def test_init_with_valid_content(self):
+                valid_contents = [
+                        "yes", "no"
+                ]
+                for content in valid_contents:
+                        option=Option(content, "Node2")
+                        self.assertEqual(option.option_content, content)
+
+        def test_init_with_invalid_content(self):
+                invalid_contents = [
+                        3,
+                        ["Yes", "No"]
+                ]
+
+                for invalid_content in invalid_contents:
+                        self.assertRaises(
+                                TypeError,
+                                Option,
+                                invalid_content, "node1"
+                        )
 
 
 if __name__ == "__main__":
