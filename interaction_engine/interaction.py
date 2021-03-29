@@ -16,9 +16,8 @@ class Interaction:
 
     def interact(self):
         choice_index = 1
-        interface = Interface(self.current_node)
+        interface = Interface(self)
         while self.current_node.get_next_node_key(choice_index) != "quit":
-            interface.print_question_and_options()
-            interface.go_to_next_node()
+            interface.run(self.current_node)
 
 
